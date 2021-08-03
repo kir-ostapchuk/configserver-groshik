@@ -1,0 +1,4 @@
+spring:
+  data:
+    mongodb:
+      uri: mongodb://test:test@0.0.0.0:27017/groshik?authSource=admin
