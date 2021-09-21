@@ -1,0 +1,32 @@
+server:
+  port: 8072
+eureka:
+  instance:
+    preferIpAddress: true
+  client:
+    registerWithEureka: true
+    fetchRegistry: true
+    serviceUrl:
+      defaultZone: http://localhost:8070/eureka/
+
+spring.main.web-application-type: reactive
+
+spring:
+  cloud:
+    gateway:
+      discovery.locator:
+        enabled: true
+        lowerCaseServiceId: true
+      routes:
+        - id: multiplier
+          uri: http://localhost:8081
+          predicates:
+            - Path=/api/v1/**
+            - Header=Authorization, Bearer [0-9a-zA-Z-.]*
+#      globalcors:
+#        corsConfigurations:
+#          '[/**]':
+#            allowedOrigins: "http://localhost:3000"
+#            allowedMethods:
+#              - GET
+#              - POST

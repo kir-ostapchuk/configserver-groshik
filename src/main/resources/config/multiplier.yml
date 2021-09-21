@@ -1,0 +1,11 @@
+server:
+  port: 8081
+
+keycloak:
+  realm: multiplier
+  auth-server-url: http://localhost:8080/auth
+  ssl-required: external
+  resource: backend
+  credentials.secret:
+  use-resource-role-mappings: true
+  bearer-only: true
