@@ -5,20 +5,23 @@ spring:
   application:
     name: config-server
   profiles:
-    active:
-#    native
-      - vault
-  cloud:
-    config:
-      server:
-#        native:
-#          search-locations: classpath:/config
-        vault:
-          authentication:
-          token:
-          port: 8200
-          host: 127.0.0.1
-          kvVersion: 2
+    active: vault
+  main:
+    allow-bean-definition-overriding: true
+
+spring.cloud.vault:
+  host: localhost
+  port: 8200
+  scheme: https
+  uri: https://localhost:8200
+  connection-timeout: 5000
+  read-timeout: 15000
+  config:
+    token: myroot
+spring.config.import: vault://
+
+
+
 
 management:
   endpoints:

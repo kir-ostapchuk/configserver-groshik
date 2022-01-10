@@ -6,6 +6,8 @@ keycloak:
   auth-server-url: http://localhost:8080/auth
   ssl-required: external
   resource: backend
-  credentials.secret:
+  credentials.secret: 1f5da71f-9b3a-4aba-a929-bb76df38a5f3
   use-resource-role-mappings: true
   bearer-only: true
+
+client.pseudo.property: "Property value loaded from File System"
